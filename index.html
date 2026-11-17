@@ -1,0 +1,265 @@
+<!doctype html>
+<html lang="es-CL">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Presupuesto mensual base cero · Hábito Financiero</title>
+<meta name="description" content="Arma tu presupuesto del mes y dale un destino a cada peso: fijos, variables, imprevistos y metas. Gratis, sin registro y sin guardar tus datos.">
+<meta property="og:title" content="Que cada peso tenga un destino">
+<meta property="og:description" content="Presupuesto base cero para tu mes: fijos, variables, imprevistos y metas. Privado, corre en tu navegador.">
+<meta name="theme-color" content="#0B1D3A">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%230B1D3A'/><text x='50' y='68' font-size='56' text-anchor='middle'>🎯</text></svg>">
+<style>
+:root{
+  --bg:#DDE3EC; --card:#fff; --surface:#f8fafc; --navy:#0B1D3A; --navy2:#0a1628;
+  --wine:#9B2335; --red:#c0293f; --teal:#1f8a75; --mint:#33C5A5; --amber:#d97706;
+  --text:#0B1D3A; --muted:#64748b; --line:#e2e8f0; --line2:#cbd5e1; --pale:#e8edf4;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}
+p{margin:0}
+.wrap{max-width:1040px;margin:0 auto;padding:0 18px}
+.hero{background:linear-gradient(160deg,var(--navy2),var(--navy) 60%,#16305a);color:#fff;padding:34px 0 86px}
+.brand{display:flex;align-items:center;gap:10px;font-weight:700;opacity:.95;font-size:15px}
+.brand i{font-style:normal;background:#fff1;border-radius:10px;padding:5px 8px}
+.pill{display:inline-block;margin-top:26px;background:#ffffff1c;border:1px solid #ffffff33;border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
+h1{font-size:clamp(28px,5.4vw,46px);line-height:1.08;margin:14px 0 12px;font-weight:900;letter-spacing:-.02em;max-width:720px}
+h1 em{font-style:normal;color:var(--mint)}
+.sub{font-size:clamp(15px,2.4vw,18px);color:#cdd9ea;max-width:620px}
+main{margin-top:-58px;padding-bottom:40px}
+.grid{display:grid;grid-template-columns:1.05fr .95fr;gap:18px;align-items:start}
+@media(max-width:860px){.grid{grid-template-columns:1fr}}
+.card{background:var(--card);border-radius:18px;padding:22px;box-shadow:0 4px 20px rgba(11,29,58,.09)}
+.card h2{margin:0 0 4px;font-size:19px;font-weight:800}
+.card .hint{color:var(--muted);font-size:14px;margin-bottom:14px}
+.banner{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;background:#fff7e6;border:1px solid #f6d58f;color:#7a4b00;border-radius:12px;padding:10px 14px;font-size:14px;margin-bottom:16px}
+.btn{font:inherit;font-weight:700;border:0;border-radius:12px;padding:11px 16px;cursor:pointer;background:var(--wine);color:#fff}
+.btn.ghost{background:var(--pale);color:var(--navy)}
+.btn.sm{padding:7px 12px;font-size:13px}
+.btn:active{transform:scale(.98)}
+.grp{margin:20px 0 4px;font-weight:800;font-size:13px;letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;gap:8px}
+.grp .tot{margin-left:auto;text-transform:none;letter-spacing:0;font-size:14px}
+.gdesc{color:var(--muted);font-size:12.5px;margin-bottom:4px}
+.dot{width:12px;height:12px;border-radius:4px;display:inline-block;flex:none}
+.row{display:grid;grid-template-columns:34px 1fr 150px;gap:10px;align-items:center;padding:6px 0}
+.row .e{font-size:22px;text-align:center}
+.row label{font-size:15px}
+.row small{display:block;color:var(--muted);font-size:12px}
+.money{position:relative}
+.money span{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--muted);font-weight:600}
+.money input{width:100%;font:inherit;font-weight:700;text-align:right;padding:10px 12px 10px 26px;border:1.5px solid var(--line);border-radius:10px;background:var(--surface);color:var(--text)}
+.money input:focus{outline:0;border-color:var(--wine);box-shadow:0 0 0 3px #9b233522;background:#fff}
+@media(max-width:480px){.row{grid-template-columns:28px 1fr 120px}.row small{display:none}}
+.ingreso{background:var(--surface);border-radius:14px;padding:6px 12px;margin-bottom:4px}
+.sticky{position:sticky;top:12px}
+@media(max-width:860px){.sticky{position:static}}
+.big{font-size:clamp(40px,8vw,58px);font-weight:900;letter-spacing:-.03em;line-height:1}
+.big.pos{color:var(--teal)} .big.neg{color:var(--red)} .big.warn{color:var(--amber)}
+.chip{display:inline-block;border-radius:999px;padding:4px 11px;font-size:13px;font-weight:800;margin:8px 0 14px;color:#fff}
+.stack{display:flex;height:34px;border-radius:10px;overflow:hidden;background:var(--pale);margin:6px 0 12px}
+.stack i{display:block;height:100%;transition:width .4s}
+.boxes{display:grid;gap:8px}
+.bx{display:flex;align-items:center;gap:10px;background:var(--surface);border-radius:12px;padding:10px 12px}
+.bx .n{flex:1;font-weight:700;font-size:14.5px}
+.bx .n small{display:block;color:var(--muted);font-weight:500;font-size:12px}
+.bx b{font-size:16px;font-weight:900;text-align:right}
+.bx b small{display:block;color:var(--muted);font-weight:600;font-size:12px}
+.note{font-size:12.5px;color:var(--muted);margin-top:12px}
+.illus{background:var(--surface);border-radius:10px;padding:8px 10px}
+.tips{margin-top:18px}
+.tips ul{margin:8px 0 0;padding-left:20px;font-size:14.5px}
+.tips li{margin:6px 0}
+.cta{margin-top:18px;background:var(--navy);color:#fff;border-radius:18px;padding:24px;display:flex;gap:16px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.cta h3{margin:0 0 4px;font-size:20px}
+.cta p{color:#cdd9ea;font-size:14.5px;max-width:560px}
+.cta a{background:var(--wine);color:#fff;text-decoration:none;font-weight:800;border-radius:12px;padding:12px 18px}
+footer{color:#475569;font-size:12.5px;padding:6px 0 30px;text-align:center}
+.mbar{display:none}
+@media(max-width:860px){
+  .mbar{display:flex;position:fixed;left:0;right:0;bottom:0;z-index:8;background:var(--navy);color:#fff;padding:10px 16px calc(10px + env(safe-area-inset-bottom));align-items:center;justify-content:space-between;gap:10px;box-shadow:0 -4px 18px rgba(11,29,58,.3)}
+  .mbar small{display:block;color:#cdd9ea;font-size:12px}
+  .mbar b{font-size:22px;font-weight:900}
+  .mbar a{background:var(--wine);color:#fff;text-decoration:none;font-weight:800;border-radius:10px;padding:10px 14px;font-size:14px;white-space:nowrap}
+  body{padding-bottom:78px}
+  .toast{bottom:92px}
+}
+.toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%) translateY(80px);background:var(--navy);color:#fff;padding:10px 16px;border-radius:12px;font-weight:700;transition:transform .3s;z-index:9}
+.toast.on{transform:translateX(-50%) translateY(0)}
+</style>
+</head>
+<body>
+<header class="hero"><div class="wrap">
+  <div class="brand"><i>🌱</i> Hábito Financiero</div>
+  <span class="pill">Herramienta del kit · Cápsula 2</span>
+  <h1>Que cada peso <em>tenga un destino</em></h1>
+  <p class="sub">Arma tu presupuesto del mes con el método base cero: asigna tu ingreso a fijos, variables, imprevistos y metas hasta que no quede nada sin destino. Sin registro.</p>
+</div></header>
+
+<main class="wrap">
+<div class="grid">
+  <section class="card" id="inputs">
+    <div class="banner" id="banner"><span>👩‍💼 Estás viendo el presupuesto de <b>Camila</b> (personaje y cifras <b>ilustrativas</b>, no reales).</span><button class="btn sm" id="clear">Usar mis números</button></div>
+    <h2>1. Arma tu presupuesto</h2>
+    <p class="hint">Parte de tu mapa de gastos del mes, no de un presupuesto ideal. Si un monto no aplica, déjalo en 0.</p>
+
+    <div class="ingreso"><div class="row"><div class="e">💰</div><div><label for="ingreso">Ingreso líquido mensual</label><small>Lo que llega a tu cuenta</small></div><div class="money"><span>$</span><input id="ingreso" inputmode="numeric" autocomplete="off"></div></div></div>
+
+    <div class="grp"><span class="dot" style="background:var(--navy)"></span> Fijos <span class="tot" id="t_fij">$0</span></div>
+    <p class="gdesc">Se repiten y casi no cambian. Se pagan primero.</p>
+    <div class="row"><div class="e">🏠</div><label for="arriendo">Arriendo o dividendo</label><div class="money"><span>$</span><input id="arriendo" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">💡</div><label for="cuentas">Cuentas: luz, agua, gas, internet, celular</label><div class="money"><span>$</span><input id="cuentas" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">🚌</div><label for="transporte">Transporte</label><div class="money"><span>$</span><input id="transporte" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">📺</div><label for="suscripciones">Suscripciones</label><div class="money"><span>$</span><input id="suscripciones" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">➕</div><label for="otrofijo">Otros fijos</label><div class="money"><span>$</span><input id="otrofijo" inputmode="numeric" autocomplete="off"></div></div>
+
+    <div class="grp"><span class="dot" style="background:var(--wine)"></span> Variables <span class="tot" id="t_var">$0</span></div>
+    <p class="gdesc">Cambian cada mes. Aquí está tu margen de ajuste.</p>
+    <div class="row"><div class="e">🛒</div><label for="super">Supermercado y feria</label><div class="money"><span>$</span><input id="super" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">🍔</div><label for="delivery">Delivery y comida fuera</label><div class="money"><span>$</span><input id="delivery" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">🛍️</div><div><label for="impulso">Compras por impulso y gastos hormiga</label><small>Cafés, compras online, antojos</small></div><div class="money"><span>$</span><input id="impulso" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">🏦</div><label for="comisiones">Comisiones e intereses</label><div class="money"><span>$</span><input id="comisiones" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">🎬</div><label for="ocio">Ocio y otros gustos</label><div class="money"><span>$</span><input id="ocio" inputmode="numeric" autocomplete="off"></div></div>
+
+    <div class="grp"><span class="dot" style="background:var(--amber)"></span> Imprevistos <span class="tot" id="t_imp">$0</span></div>
+    <p class="gdesc">Una reparación, un regalo, el médico: ocurren. Cuenta con ellos.</p>
+    <div class="row"><div class="e">🛟</div><label for="imprevistos">Colchón del mes</label><div class="money"><span>$</span><input id="imprevistos" inputmode="numeric" autocomplete="off"></div></div>
+
+    <div class="grp"><span class="dot" style="background:var(--teal)"></span> Metas <span class="tot" id="t_met">$0</span></div>
+    <p class="gdesc">Lo que decides construir. Se separa el día de pago.</p>
+    <div class="row"><div class="e">✈️</div><label for="meta1">Proyecto o viaje</label><div class="money"><span>$</span><input id="meta1" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">💳</div><label for="meta2">Pago extra de deuda</label><div class="money"><span>$</span><input id="meta2" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">🛡️</div><label for="meta3">Fondo de emergencia</label><div class="money"><span>$</span><input id="meta3" inputmode="numeric" autocomplete="off"></div></div>
+    <div class="row"><div class="e">🌱</div><label for="meta4">Otras metas o ahorro</label><div class="money"><span>$</span><input id="meta4" inputmode="numeric" autocomplete="off"></div></div>
+  </section>
+
+  <aside class="card sticky" id="result" aria-live="polite">
+    <h2>2. Tu presupuesto base cero</h2>
+    <p class="hint">Ingreso − todo lo que asignas = lo que queda sin destino.</p>
+    <div class="big" id="sin">$0</div>
+    <span class="chip" id="chip">—</span>
+    <div class="stack" id="stack"></div>
+    <div class="boxes" id="boxes"></div>
+    <p class="note">Los porcentajes son sobre tu ingreso. No hay un reparto perfecto: el mejor presupuesto es el que sigues.</p>
+    <p class="note illus">ℹ️ <b>Resultados ilustrativos:</b> dependen de los datos que ingreses y no son asesoría financiera.</p>
+  </aside>
+</div>
+
+<section class="card tips">
+  <h2>3. Si te sobra o te falta</h2>
+  <div id="tipBody"></div>
+  <ul>
+    <li>Para ajustar sin sufrir, parte por lo que <b>no disfrutas</b> (suscripciones sin uso) y baja <b>de a poco</b>.</li>
+    <li>Deja un <b>gusto planificado</b>, sin culpa.</li>
+    <li><b>Automatiza</b> las metas: que se transfieran el día de pago.</li>
+    <li><b>Revísalo 10 minutos al mes</b> y ajusta con lo que realmente pasó.</li>
+  </ul>
+</section>
+
+<section class="cta">
+  <div><h3>Ya sabes a dónde va cada peso</h3><p>Esta herramienta es parte del <b>Kit para reducir el estrés financiero</b>. Síguenos para recibir el curso y las siguientes herramientas.</p></div>
+  <a href="https://www.instagram.com/tuhabitofinanciero_/" target="_blank" rel="noopener">@tuhabitofinanciero_</a>
+</section>
+<div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:14px"><button class="btn" id="copy">📋 Copiar mi resumen</button><button class="btn ghost" id="share">Compartir esta herramienta</button></div>
+</main>
+
+<footer class="wrap"><p>🔒 Todo se calcula en tu navegador: no enviamos ni guardamos tus datos. Los resultados y ejemplos son ilustrativos. Herramienta educativa; no constituye asesoría financiera personalizada.</p></footer>
+<div class="mbar" id="mbar"><div><small id="mlab">Sin asignar</small><b id="mval">$0</b></div><a href="#result">Ver resultado ↓</a></div>
+<div class="toast" id="toast"></div>
+
+<script>
+const $ = id => document.getElementById(id);
+const GROUPS = {
+  fij:{n:'Fijos',e:'🏠',c:'#0B1D3A',ids:['arriendo','cuentas','transporte','suscripciones','otrofijo']},
+  var:{n:'Variables',e:'🛒',c:'#9B2335',ids:['super','delivery','impulso','comisiones','ocio']},
+  imp:{n:'Imprevistos',e:'🛟',c:'#d97706',ids:['imprevistos']},
+  met:{n:'Metas',e:'🎯',c:'#1f8a75',ids:['meta1','meta2','meta3','meta4']}
+};
+const IDS = ['ingreso', ...Object.values(GROUPS).flatMap(g => g.ids)];
+const EJEMPLO = {ingreso:1500000,arriendo:450000,cuentas:110000,transporte:90000,suscripciones:38000,otrofijo:0,
+  super:280000,delivery:70000,impulso:80000,comisiones:17000,ocio:0,imprevistos:100000,meta1:100000,meta2:100000,meta3:65000,meta4:0};
+const fmt = n => (n < 0 ? '-$' : '$') + Math.abs(Math.round(n)).toLocaleString('es-CL');
+const val = id => parseInt(($(id).value || '').replace(/\D/g, ''), 10) || 0;
+let ejemploActivo = true;
+
+function setVal(id, n){ $(id).value = n ? n.toLocaleString('es-CL') : ''; }
+function loadExample(){ IDS.forEach(i => setVal(i, EJEMPLO[i] || 0)); ejemploActivo = true; $('banner').style.display = 'flex'; render(); }
+
+IDS.forEach(id => {
+  $(id).addEventListener('input', e => {
+    const el = e.target, before = el.value.slice(0, el.selectionStart).replace(/\D/g, '').length;
+    const n = parseInt(el.value.replace(/\D/g, ''), 10) || 0;
+    el.value = n ? n.toLocaleString('es-CL') : '';
+    let pos = 0, seen = 0;
+    while (pos < el.value.length && seen < before) { if (/\d/.test(el.value[pos])) seen++; pos++; }
+    el.setSelectionRange(pos, pos);
+    if (ejemploActivo) { ejemploActivo = false; $('banner').style.display = 'none'; }
+    render();
+  });
+});
+$('clear').onclick = () => { IDS.forEach(i => $(i).value = ''); ejemploActivo = false; $('banner').style.display = 'none'; render(); $('ingreso').focus(); };
+
+let shown = 0, raf;
+function countTo(target){
+  cancelAnimationFrame(raf); const from = shown, t0 = performance.now();
+  const step = t => { const k = Math.min(1, (t - t0) / 500), e = 1 - Math.pow(1 - k, 3);
+    shown = from + (target - from) * e; $('sin').textContent = fmt(shown); if (k < 1) raf = requestAnimationFrame(step); else shown = target; };
+  raf = requestAnimationFrame(step);
+}
+
+function totals(){
+  const ing = val('ingreso'), t = {};
+  for (const k in GROUPS) t[k] = GROUPS[k].ids.reduce((a, i) => a + val(i), 0);
+  const asig = t.fij + t.var + t.imp + t.met;
+  return {ing, t, asig, sin: ing - asig};
+}
+
+function render(){
+  const {ing, t, asig, sin} = totals();
+  for (const k in GROUPS) $('t_' + k).textContent = fmt(t[k]);
+
+  const big = $('sin'); countTo(sin);
+  let lab, col, cls;
+  if (!ing) { lab = 'Ingresa tu ingreso'; col = '#64748b'; cls = 'pos'; }
+  else if (sin === 0) { lab = '¡Cada peso tiene destino!'; col = 'var(--teal)'; cls = 'pos'; }
+  else if (sin > 0) { lab = 'Aún tienes plata sin destino'; col = 'var(--amber)'; cls = 'warn'; }
+  else { lab = 'Asignaste más de lo que ganas'; col = 'var(--red)'; cls = 'neg'; }
+  big.className = 'big ' + cls;
+  $('chip').textContent = lab; $('chip').style.background = col;
+  $('mlab').textContent = sin < 0 ? 'Te pasaste por' : 'Sin asignar';
+  $('mval').textContent = fmt(Math.abs(sin)); $('mval').style.color = sin < 0 ? '#ff8a99' : sin === 0 && ing ? '#33C5A5' : '#fff';
+
+  // barra apilada (escala: el mayor entre ingreso y asignado)
+  const scale = Math.max(ing, asig) || 1;
+  let bar = Object.keys(GROUPS).map(k => `<i style="width:${t[k] / scale * 100}%;background:${GROUPS[k].c}" title="${GROUPS[k].n}"></i>`).join('');
+  if (sin > 0) bar += `<i style="width:${sin / scale * 100}%;background:repeating-linear-gradient(45deg,#cbd5e1,#cbd5e1 6px,#e2e8f0 6px,#e2e8f0 12px)" title="Sin asignar"></i>`;
+  $('stack').innerHTML = bar;
+
+  const pct = n => ing ? Math.round(n / ing * 100) + '%' : '—';
+  let html = Object.keys(GROUPS).map(k => `<div class="bx"><span class="dot" style="background:${GROUPS[k].c}"></span><div class="n">${GROUPS[k].e} ${GROUPS[k].n}</div><b>${fmt(t[k])}<small>${pct(t[k])} del ingreso</small></b></div>`).join('');
+  html += `<div class="bx" style="background:${sin === 0 && ing ? '#e6f6f2' : sin < 0 ? '#fdeaed' : 'var(--surface)'}"><span class="dot" style="background:#94a3b8"></span><div class="n">Total asignado<small>de ${fmt(ing)} de ingreso</small></div><b>${fmt(asig)}<small>${pct(asig)}</small></b></div>`;
+  $('boxes').innerHTML = html;
+
+  // consejos según estado
+  let tip;
+  if (!ing) tip = '<p class="hint" style="margin:0">Anota tu ingreso y tus gastos para ver cuánto te queda sin destino.</p>';
+  else if (sin > 0) tip = `<p class="hint" style="margin:0 0 4px"><b>Te quedan ${fmt(sin)} sin asignar.</b> En base cero esa plata debe tener un nombre: súmala a una meta (ahorro, fondo de emergencia, deuda) o al colchón de imprevistos.</p>`;
+  else if (sin < 0) tip = `<p class="hint" style="margin:0 0 4px"><b>Te pasaste por ${fmt(-sin)}.</b> Revisa primero tus <b>variables</b> (delivery, impulso, comisiones): es donde más puedes mover sin tocar los fijos.${t.var ? ` Hoy suman ${fmt(t.var)}.` : ''}</p>`;
+  else tip = '<p class="hint" style="margin:0 0 4px"><b>Presupuesto cuadrado: $0 sin asignar.</b> Ahora lo importante es sostenerlo: automatiza tus metas y compáralo con lo que pasó a fin de mes.</p>';
+  $('tipBody').innerHTML = tip;
+}
+
+function toast(m){ const t = $('toast'); t.textContent = m; t.classList.add('on'); setTimeout(() => t.classList.remove('on'), 2200); }
+$('copy').onclick = async () => {
+  const {ing, t, asig, sin} = totals();
+  const txt = `Mi presupuesto del mes (${fmt(ing)}): fijos ${fmt(t.fij)} · variables ${fmt(t.var)} · imprevistos ${fmt(t.imp)} · metas ${fmt(t.met)} · sin asignar ${fmt(sin)}. Arma el tuyo: ${location.href.split('#')[0]}`;
+  try { await navigator.clipboard.writeText(txt); toast('Resumen copiado'); } catch { toast('No se pudo copiar'); }
+};
+$('share').onclick = async () => {
+  const data = {title: 'Que cada peso tenga un destino', text: 'Arma tu presupuesto base cero: fijos, variables, imprevistos y metas.', url: location.href.split('#')[0]};
+  if (navigator.share) { try { await navigator.share(data); } catch {} } else { try { await navigator.clipboard.writeText(data.url); toast('Enlace copiado'); } catch { toast(data.url); } }
+};
+loadExample();
+</script>
+</body>
+</html>
